@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./components/navbar/Navbar";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { allRecipes } from "./libs/api";
 import { setAllRecipes } from "./data/dataSlice";
-import Hero from "./components/hero/Hero";
-import Recommendation from "./components/recomendation/Recommendation";
-import About from "./components/about/About";
-import Footer from "./components/footer/Footer";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import MealDetail from "./pages/MealDetail";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,17 +26,14 @@ const App = () => {
   }, []);
 
   return (
-    <div className="">
-      <div className="max-w-5xl mx-auto">
-        <Navbar />
-        <Hero />
-        <div className="w-full">
-          <Recommendation />
-        </div>
-      </div>
-      <About />
-      <Footer />
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/meal/:idMeal" element={<MealDetail />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 };
 
