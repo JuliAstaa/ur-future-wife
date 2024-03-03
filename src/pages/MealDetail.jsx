@@ -10,6 +10,7 @@ const MealDetail = () => {
       try {
         const datas = await mealDetail(idMeal).then((data) => data);
         setMeal(datas.meals[0]);
+        console.log(datas.meals[0]);
       } catch (error) {
         console.log(error);
       }
@@ -17,8 +18,10 @@ const MealDetail = () => {
 
     fetchData();
   }, [idMeal]);
+  console.log(idMeal);
+  console.log(meal);
 
-  return <div className="w-full h-full">{meal.strMeal}</div>;
+  return <div className="w-full h-full">{meal?.strMeal}</div>;
 };
 
 export default MealDetail;
