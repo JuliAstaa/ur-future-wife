@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Card = ({ rec }) => {
   return (
-    <div key={rec.idMeal} className="shadow-xl group cursor-pointer">
-      <Link to={`meal/${rec.idMeal}`}>
+    <div className="shadow-xl group cursor-pointer">
+      <Link to={`/meal/${rec.idMeal}`}>
         <div className="img relative overflow-hidden">
           <img src={rec.strMealThumb} alt="" />
           <div className="absolute top-0 right-0 w-auto h-6 grid place-items-center px-2 bg-[#FF9800] rounded-bl-md font-poppins md:text-md">

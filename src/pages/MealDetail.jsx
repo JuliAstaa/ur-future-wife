@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { mealDetail } from "../libs/api";
 import Footer from "../components/footer/Footer";
 import DynamicNav from "../components/navbar/DynamicNav";
@@ -9,6 +9,8 @@ const MealDetail = () => {
   const [meal, setMeal] = useState();
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
+  const location = useLocation();
+  console.log(location);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,10 +37,19 @@ const MealDetail = () => {
   return (
     <div className="w-full h-full">
       <div className="max-w-5xl mx-auto">
-        <DynamicNav />
+        <DynamicNav
+          path={[
+            { path: "Meal", url: "/meal" },
+            { path: meal?.strMeal, url: location.pathname },
+          ]}
+        />
         <div className="w-full grid grid-cols-2 gap-8">
           <div className="img col-span-2 lg:col-span-1">
-            <img src={meal?.strMealThumb} alt="" />
+            <img
+              src={meal?.strMealThumb}
+              className="w-full h-full object-cover"
+              alt=""
+            />
           </div>
           <div className="col-span-2 lg:col-span-1 px-2 lg:px-0">
             <div className="title">
