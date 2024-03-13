@@ -10,7 +10,6 @@ const MealDetail = () => {
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
   const location = useLocation();
-  console.log(location);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,6 +54,9 @@ const MealDetail = () => {
             <div className="title">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-robotoCondensed font-bold">
                 {meal?.strMeal}
+              </h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-robotoCondensed font-bold">
+                {idMeal}
               </h1>
             </div>
             <div className="ingredients">
