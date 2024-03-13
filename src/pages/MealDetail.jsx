@@ -6,16 +6,14 @@ import DynamicNav from "../components/navbar/DynamicNav";
 
 const MealDetail = () => {
   const { idMeal } = useParams();
-  const [mealId, setMealId] = useState(0);
   const [meal, setMeal] = useState();
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
   const location = useLocation();
-  setMealId(idMeal);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const datas = await mealDetail(mealId).then((data) => data);
+        const datas = await mealDetail(idMeal).then((data) => data);
         setMeal(datas.meals[0]);
         const igr = [];
         const msr = [];
@@ -33,7 +31,7 @@ const MealDetail = () => {
     };
 
     fetchData();
-  }, [mealId]);
+  }, [idMeal]);
 
   return (
     <div className="w-full h-full">
