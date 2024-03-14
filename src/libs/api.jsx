@@ -13,8 +13,6 @@ export const allRecipes = async () => {
 };
 
 export const mealDetail = async (mealId) => {
-  console.log(mealId);
-  console.log(`${baseUrl}/lookup.php?i=${mealId}`);
   try {
     const response = await axios.get(`${baseUrl}/lookup.php?i=${mealId}`);
     return response.data;
