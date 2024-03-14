@@ -5,6 +5,7 @@ import Card from "../components/card/Card";
 import { useSelector } from "react-redux";
 import { recommend } from "../data/dataSlice";
 import Footer from "../components/footer/Footer";
+import Categories from "../components/categories/Categories";
 
 const Meal = () => {
   const location = useLocation();
@@ -17,6 +18,7 @@ const Meal = () => {
           <h1 className="text-4xl md:text-6xl  font-robotoCondensed font-bold">
             MEALS
           </h1>
+          <Categories />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {recomendation.map((rec) => {
               return <Card key={rec.idMeal} rec={rec} />;
