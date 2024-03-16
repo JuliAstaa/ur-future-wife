@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { recommend } from "../data/dataSlice";
 import Footer from "../components/footer/Footer";
 import Categories from "../components/categories/Categories";
+import CardLoading from "../components/loading/CardLoading";
 
 const Meal = () => {
   const location = useLocation();
@@ -20,9 +21,13 @@ const Meal = () => {
           </h1>
           <Categories />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {recomendation.map((rec) => {
-              return <Card key={rec.idMeal} rec={rec} />;
-            })}
+            {recomendation.length === 0
+              ? [1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => {
+                  return <CardLoading key={index} />;
+                })
+              : recomendation.map((rec) => {
+                  return <Card key={rec.idMeal} rec={rec} />;
+                })}
           </div>
         </div>
       </div>

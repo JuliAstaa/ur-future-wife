@@ -5,10 +5,10 @@ import Card from "../card/Card";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Categories from "../categories/Categories";
+import CardLoading from "../loading/CardLoading";
 
 const Recommendation = () => {
   const recomendation = useSelector(recommend);
-  console.log(recomendation);
   return (
     <div className="w-fullx pt-8 px-2 lg:px-0">
       <div className="title flex justify-between items-center">
@@ -28,9 +28,13 @@ const Recommendation = () => {
       </div>
       <Categories />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {recomendation.slice(0, 4).map((rec) => {
-          return <Card key={rec.idMeal} rec={rec} />;
-        })}
+        {recomendation.length === 0
+          ? [1, 2, 3, 4].map((_, index) => {
+              return <CardLoading key={index} />;
+            })
+          : recomendation.slice(0, 4).map((rec) => {
+              return <Card key={rec.idMeal} rec={rec} />;
+            })}
       </div>
     </div>
   );

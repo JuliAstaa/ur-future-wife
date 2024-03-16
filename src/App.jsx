@@ -11,7 +11,6 @@ import { getSelectedCategory } from "./data/dataSlice";
 const App = () => {
   const dispatch = useDispatch();
   const selectedCategory = useSelector(getSelectedCategory);
-  console.log(selectedCategory);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,7 +25,6 @@ const App = () => {
           const datas = await filteredRecipe(selectedCategory).then(
             (data) => data
           );
-          console.log(datas.meals);
           dispatch(setAllRecipes(datas.meals));
         }
       } catch (error) {
@@ -38,15 +36,13 @@ const App = () => {
   }, [selectedCategory]);
 
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/meal" element={<Meal />}></Route>
-          <Route path="/meal/:idMeal" element={<MealDetail />}></Route>
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/meal" element={<Meal />}></Route>
+        <Route path="/meal/:idMeal" element={<MealDetail />}></Route>
+      </Routes>
+    </Router>
   );
 };
 
