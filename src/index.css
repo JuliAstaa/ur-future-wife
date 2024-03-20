@@ -6,6 +6,10 @@
   @apply block w-9 h-1 bg-black transition-all ease-in-out duration-300;
 }
 
+* {
+  @apply scroll-smooth;
+}
+
 .hamburger-active > span:nth-child(1) {
   @apply rotate-45;
 }

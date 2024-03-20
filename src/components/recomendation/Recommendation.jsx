@@ -10,7 +10,7 @@ import CardLoading from "../loading/CardLoading";
 const Recommendation = () => {
   const recomendation = useSelector(recommend);
   return (
-    <div className="w-fullx pt-8 px-2 lg:px-0">
+    <div id="recipe" className="w-fullx pt-8 px-2 lg:px-0">
       <div className="title flex justify-between items-center">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold font-robotoCondensed uppercase">
           Recommendation for u

@@ -41,3 +41,13 @@ export const categories = async () => {
     throw error;
   }
 };
+
+export const searchRecipe = async (keyword) => {
+  try {
+    const respone = await axios.get(`${baseUrl}/search.php?s=${keyword}`);
+    return respone.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};

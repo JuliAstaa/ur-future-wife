@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import MealDetail from "./pages/MealDetail";
 import Meal from "./pages/Meal";
 import { getSelectedCategory } from "./data/dataSlice";
+import Search from "./pages/Search";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/meal" element={<Meal />}></Route>
         <Route path="/meal/:idMeal" element={<MealDetail />}></Route>
+        <Route path="/search" element={<Home />}></Route>
+        <Route path="/search/:keyword" element={<Search />}></Route>
       </Routes>
     </Router>
   );
