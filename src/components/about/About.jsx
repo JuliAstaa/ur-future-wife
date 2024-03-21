@@ -17,6 +17,8 @@ const About = () => {
             exercitationem laboriosam voluptatibus reiciendis, perferendis fuga
             modi nisi minima consequatur iure aperiam deleniti repudiandae
             distinctio culpa eius quod repellendus? Iusto autem nobis ducimus.
+            all the datas is from{" "}
+            <a href="https://www.themealdb.com/">TheMealDB</a>
           </p>
         </div>
       </div>
